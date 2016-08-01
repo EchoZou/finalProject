@@ -1,0 +1,28 @@
+﻿<!-- //Name: COMP2007 Enterprise Computing final project  - Summer 2016
+//Author: Mo Zou &　Pui in Kwok & Yang Li
+//Description: This assignment base on assginment 2, the MVC restaurant. Then add more security control and get motified website.
+-->
+
+
+@using finalProject.Models
+@model Item
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Item: @Model.Title</h2>
+<br />
+
+<!-- item details -->
+<div class="container">
+    <img src="@Model.URL" alt="@Model.Title" />
+    <hr />
+    Menu: @Model.Menu.Name<br />
+    Details: @Model.DetailedDescription<br />
+    Price: @Model.Price<br />
+   
+    <br />
+        @Html.ActionLink("Back to List", "Index")
+
+</div>

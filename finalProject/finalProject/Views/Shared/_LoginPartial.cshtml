@@ -1,0 +1,32 @@
+﻿<!-- //Name: COMP2007 Enterprise Computing final project  - Summer 2016
+//Author: Mo Zou &　Pui in Kwok & Yang Li
+//Description: This assignment base on assginment 2, the MVC restaurant. Then add more security control and get motified website.
+-->
+
+
+
+
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <!-- after login user can see menu manager on navbar -->
+        <li>@Html.ActionLink("MenuManager", "Index", "MenuManager")</li>
+        <li>
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        </li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+    </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

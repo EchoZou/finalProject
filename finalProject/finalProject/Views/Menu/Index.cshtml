@@ -1,0 +1,34 @@
+﻿<!-- //Name: COMP2007 Enterprise Computing final project  - Summer 2016
+//Author: Mo Zou &　Pui in Kwok & Yang Li
+//Description: This assignment base on assginment 2, the MVC restaurant. Then add more security control and get motified website.
+-->
+
+
+@using finalProject.Models
+@model IEnumerable<Menu>
+
+
+@{
+    ViewBag.Title = "Index";
+
+}
+
+
+<h3>
+    Select from @Model.Count()
+
+    menu:
+</h3>
+
+<hr />
+
+<!-- display all menus -->
+<div class="row">
+    @foreach (Menu item in Model)
+    {
+        <div class="col-md-3">
+            @Html.ActionLink(item.Name, "Browse", new { menu = item.Name })
+        </div>
+    }
+
+</div>
