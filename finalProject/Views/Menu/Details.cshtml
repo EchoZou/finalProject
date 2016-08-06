@@ -1,0 +1,34 @@
+﻿<!-- //Name: COMP2007 Enterprise Computing final project  - Summer 2016
+//Author: Mo Zou &　Pui in Kwok & Yang Li
+//Description: This assignment base on assginment 2, the MVC restaurant. Then add more security control and get motified website.
+-->
+
+
+@using finalProject.Models
+@model Item
+
+@{
+    ViewBag.Title = "Item - " + Model.Title;
+}
+<h2>@Model.Title</h2>
+<p>
+    <img alt="@Model.Title"
+         src="@Model.URL" />
+</p>
+<div id="album-details">
+    <p>
+        <em>Menu:</em>
+        @Model.Menu.Name
+    </p>
+    <p>
+        <em>Description:</em>
+        @Model.DetailedDescription
+    </p>
+    <p>
+        <em>Price:</em>
+        @String.Format("{0:F}",Model.Price)
+    </p>
+    <p class="button">
+        @Html.ActionLink("Add to cart", "AddToCart","ShoppingCart", new { id = Model.ItemID }, "")
+    </p>
+</div>
