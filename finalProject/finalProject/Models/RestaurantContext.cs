@@ -1,7 +1,3 @@
-//Name: COMP2007 Enterprise Computing final project  - Summer 2016
-//Author: Mo Zou &¡¡Pui in Kwok & Yang Li
-//Description: This assignment base on assginment 2, the MVC restaurant. Then add more security control and get motified website. 
-
 namespace finalProject.Models
 {
     using System;
@@ -12,9 +8,10 @@ namespace finalProject.Models
     public partial class RestaurantContext : DbContext
     {
         public RestaurantContext()
-            : base("name=RestaurantConnect")
+            : base("name=RestaurantConnection")
         {
         }
+
 
         //item and menu DB
         public virtual DbSet<Item> Items { get; set; }
@@ -23,7 +20,6 @@ namespace finalProject.Models
         public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
-
 
     }
 }
