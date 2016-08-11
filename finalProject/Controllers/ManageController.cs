@@ -15,7 +15,7 @@ using finalProject.Models;
 
 namespace finalProject.Controllers
 {
-    [Authorize(Roles = "Administrator, Manager")]
+    [AllowAnonymous]
     public class ManageController : Controller
     {
         private ApplicationSignInManager _signInManager;
